@@ -211,6 +211,7 @@ def get_hostnames() -> tuple[str, str, str]:
                 if "backend" in resp_json and "postgres" in resp_json:
                     backend_hostname = resp_json["backend"]
                     db_hostname = resp_json["postgres"]
+                    log.info("Success!")
                     return (frontend_hostname, backend_hostname, db_hostname)
                 # if only backend is connected
                 if "backend" in resp_json:

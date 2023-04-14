@@ -65,7 +65,7 @@ var periodicUpdates = setInterval(function () {
   getFrontendVersion();
   getBackendVersion();
   getDatabaseVersion();
-}, 1000);
+}, 25000);
 
 function get(endpoint) {
   var xhttp = new XMLHttpRequest();
@@ -193,23 +193,7 @@ function getPodNames() {
 
 updatePodNamesTable = setInterval(function () {
   getPodNames();
-}, 1000);
-
-function switchView() {
-  containerDiv = document.getElementById("container-hostname-view");
-  if (containerDiv.style.display === "none") {
-    containerDiv.style.display = "block";
-  } else {
-    containerDiv.style.display = "none";
-  }
-
-  k8sHostnameDiv = document.getElementById("k8s-view");
-  if (k8sHostnameDiv.style.display === "none") {
-    k8sHostnameDiv.style.display = "block";
-  } else {
-    k8sHostnameDiv.style.display = "none";
-  }
-}
+}, 25000);
 
 function addQuote(e) {
   e.preventDefault();

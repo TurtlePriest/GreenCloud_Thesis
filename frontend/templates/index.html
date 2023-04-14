@@ -90,7 +90,7 @@
           </div>
           <div class="col-md-4 offset-md-2">
             <h2>Application Status</h2>
-            <p>(Updates every 1 second)</p>
+            <p>(Updates every 25 seconds)</p>
 
             <div id="container-hostname-view" style="display: block">
               <table class="table table-striped">
@@ -156,42 +156,6 @@
                 </tbody>
               </table>
             </div>
-
-            <div id="k8s-view" style="display: none">
-              <p id="application-status-message">
-                Waiting for response from frontend pod ...
-              </p>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td>Name</td>
-                    <td>Pod name(s)</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="frontend-pod-names">
-                    <td>Frontend</td>
-                    <td>Waiting for response.</td>
-                  </tr>
-                  <tr id="backend-pod-names">
-                    <td>Backend</td>
-                    <td>Waiting for response.</td>
-                  </tr>
-                  <tr id="database-pod-names">
-                    <td>Database</td>
-                    <td>Waiting for response.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <button
-              type="button"
-              class="btn btn-secondary btn-lg"
-              onclick="switchView()"
-            >
-              Switch view
-            </button>
           </div>
         </div>
       </div>
