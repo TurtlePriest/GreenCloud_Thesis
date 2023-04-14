@@ -108,7 +108,7 @@ function getAllQuotes() {
 // update the hostnames every second
 updatePodHostnames = setInterval(function () {
   getHostNames();
-}, 1000);
+}, 10000);
 
 function updatePodNameRow(name, rowId, podNames) {
   document.getElementById(rowId).innerHTML = "";
