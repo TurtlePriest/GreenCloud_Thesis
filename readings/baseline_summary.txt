@@ -1,16 +1,16 @@
-Test duration: 136 seconds
+Test duration: 245 seconds
 
 Voltage stats:
-Voltage max: 5.208 V
-Voltage min: 5.194 V
-Voltage average: 5.20038 V
+Voltage max: 5.202 V
+Voltage min: 5.197 V
+Voltage average: 5.199 V
 
 Current stats:
-Current max: 0.083 A
-Current min: 0.0405 A
-Current average: 0.06479 A
+Current max: 0.0699 A
+Current min: 0.0576 A
+Current average: 0.06509 A
 
 Wattage stats:
-Wattage max: 0.4313 W
-Wattage min: 0.2108 W
-Wattage average: 0.3369 W
+Wattage max: 0.3634 W
+Wattage min: 0.2995 W
+Wattage average: 0.3384 W
