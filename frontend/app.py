@@ -78,7 +78,7 @@ def check_if_database_is_available() -> bool:
         # try querying the backend
         try:
             backend_health_endpoint = f"{BACKEND_URL}/check-db-connection"
-            response = requests.get(backend_health_endpoint, timeout=3)
+            response = requests.get(backend_health_endpoint, timeout=10)
             if response.status_code == 200:
                 body = response.json()
                 if "db-connected" in body:
@@ -101,7 +101,7 @@ def check_if_backend_is_available() -> bool:
         # try querying the backend
         try:
             backend_health_endpoint = f"{BACKEND_URL}/healthz/ready"
-            response = requests.get(backend_health_endpoint, timeout=3)
+            response = requests.get(backend_health_endpoint, timeout=10)
             return response.status_code == 200
         except requests.ConnectionError:
             return False
@@ -111,7 +111,7 @@ def check_if_backend_is_available() -> bool:
 
 def get_random_quote_from_backend() -> str:
     """get a single quote from the backend"""
-    response = requests.get(f"{BACKEND_URL}/quote", timeout=3)
+    response = requests.get(f"{BACKEND_URL}/quote", timeout=10)
     if response.status_code == 200:
         return response.text
     log.error("did not get a response 200 from backend")
@@ -120,7 +120,7 @@ def get_random_quote_from_backend() -> str:
 
 def get_all_quotes_from_backend() -> list[str]:
     """get list of all quotes form the backend"""
-    response = requests.get(f"{BACKEND_URL}/quotes", timeout=3)
+    response = requests.get(f"{BACKEND_URL}/quotes", timeout=10)
     if response.status_code == 200:
         return response.json()
     log.error("did not get a response 200 from backend")
@@ -176,7 +176,7 @@ def add_quote():
         if "quote" in request_json:
             url = f"{BACKEND_URL}/add-quote"
             try:
-                res = requests.post(url, json=request_json, timeout=3)
+                res = requests.post(url, json=request_json, timeout=10)
                 if res.status_code == 200:
                     log.info("new quote successfully posted to backend.")
                     return "Quote received", 200
@@ -198,7 +198,7 @@ def get_hostnames() -> tuple[str, str, str]:
     frontend_hostname = socket.gethostname()
     if check_if_backend_is_available():
         try:
-            response = requests.get(f"{BACKEND_URL}/hostname", timeout=5)
+            response = requests.get(f"{BACKEND_URL}/hostname", timeout=10)
             if response.status_code == 200:
                 resp_json = response.json()
                 log.debug(resp_json)
