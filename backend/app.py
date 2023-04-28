@@ -98,12 +98,11 @@ def add_quote():
             quote_to_insert = request_json["quote"]
             QUOTES.append(quote_to_insert)
 
-            if check_if_db_is_available():
-                inserted = db.insert_quote(quote_to_insert, DB_CONN)
-                if inserted:
-                    log.info("Successfully inserted '%s' into db.", quote_to_insert)
-                else:
-                    log.error("could insert '%s' into db.", quote_to_insert)
+            inserted = db.insert_quote(quote_to_insert, DB_CONN)
+            if inserted:
+                log.info("Successfully inserted '%s' into db.", quote_to_insert)
+            else:
+                log.error("could insert '%s' into db.", quote_to_insert)
         else:
             log.error("could not find 'quote' in request")
             return "No 'quote' key in JSON", 500
