@@ -156,18 +156,13 @@ def index():
 @APP.route("/random-quote")
 def random_quote():
     """return a random quote"""
-    if check_if_backend_is_available():
-        #  return random.choice(get_all_quotes_from_backend())
-        return get_random_quote_from_backend()
-    return random.choice(default_quotes)
+    return get_random_quote_from_backend()
 
 
 @APP.route("/quotes")
 def quotes():
     """Get all available quotes as JSON"""
-    if check_if_backend_is_available():
-        return jsonify(get_all_quotes_from_backend())
-    return jsonify(default_quotes)
+    return jsonify(get_all_quotes_from_backend())
 
 
 @APP.route("/add-quote", methods=["POST"])

@@ -121,25 +121,20 @@ def index():
 @APP.route("/quotes")
 def quotes():
     """return all quotes as JSON"""
-    if check_if_db_is_available():
-        all_quotes = db.get_quotes(DB_CONN)
-        if all_quotes:
-            return jsonify(all_quotes)
-        return jsonify([])
-    return jsonify(QUOTES)
+    all_quotes = db.get_quotes(DB_CONN)
+    if all_quotes:
+        return jsonify(all_quotes)
+    return jsonify([])
 
 
 @APP.route("/quote")
 def quote():
     """return single random quote"""
-    if check_if_db_is_available():
-        all_quotes = db.get_quotes(DB_CONN)
-        if all_quotes:
-            return random.choice(all_quotes)
-        log.error("Could not get quotes from the database.")
-        return ""
-    # if db not available, use in-memory quotes
-    return random.choice(QUOTES)
+    all_quotes = db.get_quotes(DB_CONN)
+    if all_quotes:
+        return random.choice(all_quotes)
+    log.error("Could not get quotes from the database.")
+    return ""
 
 
 @APP.route("/hostname")

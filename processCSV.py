@@ -3,10 +3,16 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Get file name from cmd argument
+# Get file path from cmd argument
 filepath = sys.argv[1]
+
+# Get file name without extention from path
 filename = filepath.split("/")[-1].split(".")[0]
+
+# Get folder destination from path
 dest = filepath.split("/")[0]+"/"
+
+# Define variables
 duration = 0
 current = []
 voltage = []
