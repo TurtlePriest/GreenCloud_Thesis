@@ -58,16 +58,3 @@ with open(dest+filename+"_summary.txt", 'w') as summ:
                "Wattage max: %s" %max(watt) + " W\n" +
                "Wattage min: %s" %min(watt) + " W\n" +
                "Wattage average: %s" %float(avg(watt)) + " W")
-
-
-# Create dataframe with measured watts and time
-df = pd.DataFrame(watt, columns=['Watt'])
-df['Time'] = df.index+1
-
-# Create the time series plot with labels and save it as a png
-ax = df.plot(x='Time',y='Watt')
-ax.set_xlabel('Time in seconds')
-ax.set_ylabel('Power in Watt')
-ax.set_title('Time series of power consumption')
-fig = ax.get_figure()
-fig.savefig(dest + filename +"_plot.png")

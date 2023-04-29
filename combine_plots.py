@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 # Get file path from cmd argument
 file1 = sys.argv[1]
 file2 = sys.argv[2]
+title = sys.argv[3]
 
 # Get file name without extention from path
 filename1 = file1.split("/")[-1].split(".")[0]
@@ -76,7 +77,7 @@ ax = df1.plot(x='Time',y='Baseline')
 df2.plot(ax=ax, x='Time', y='Optimized')
 ax.set_xlabel('Time in seconds')
 ax.set_ylabel('Power in Watt')
-ax.set_title('Time series of power consumption')
+ax.set_title(title)
 plt.legend(loc='upper left',bbox_to_anchor=(0.8, 1.15))
 fig = ax.get_figure()
 fig.savefig(dest + filename1 +"_comparison.pdf")
