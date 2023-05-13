@@ -23,7 +23,7 @@ with open(filepath, 'r') as csvfile:
     # Open file specified in command
     reader = csv.reader(csvfile)
 
-    # Skip the first two rows to aviod field names
+    # Skip the first two rows to avoid field names
     next(reader)
     next(reader)
     
